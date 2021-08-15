@@ -9,7 +9,7 @@
 
 **Setup & Installation**
  - Run db_structure.sql
- - Default username & password is admin
+ - Default username & password are admin
  - Configure db password in api/config.php & includes/config.php
 
 **Apache Config** 
