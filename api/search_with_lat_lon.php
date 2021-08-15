@@ -31,7 +31,7 @@ endforeach;
 if ($dataArrays != '' && $dataArrays != []) {
     $code = 200;
     $data = array("code" => 200, "message" => "Ok", "data" => $data);
-    query_log($result['id'], 'Get Info');
+    query_log($result['id'], 'Location');
 } else {
     $code = 404;
     $data = array("code" => 404, "message" => "Not Found");

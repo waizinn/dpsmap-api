@@ -26,7 +26,7 @@ $data = array(
 if ($dataArrays != '' && $dataArrays != []) {
     $code = 200;
     $data = array("code" => $code, "message" => "Ok", "data" => $data);
-    query_log($result['id'], 'Get Info');
+    query_log($result['id'], 'DPS ID');
 } else {
     $code = 404;
     $data = array("code" => $code, "message" => "Not Found");
