@@ -1,7 +1,7 @@
 <?php
 include "includes/header.php";
-if (isset($_GET['filter'])) {
-    $text = $_GET['text'] = $_GET['text'];
+if (isset($_GET['text'])) {
+    $text = $_SESSION['text'] = $_GET['text'];
 	}	else{
 	$text = $_SESSION['text'];
 	}
