@@ -1,6 +1,8 @@
 <?php
 include "includes/header.php";
 if ($role == "Admin") {
+    $_SESSION['table']='dps';
+    $_SESSION['sql']='SELECT * FROM dps';
     $message = '';
     $clear = token();
 
@@ -104,7 +106,7 @@ if ($role == "Admin") {
 
 
                 <div class="btn-group btn-group-sm mt-3  w-100" role="group">
-                    <input type="button" onclick="window.location='/export/dps'" value="Export"
+                    <input type="button" onclick="window.location='/export'" value="Export"
                         class="btn btn-sm btn-primary w-25 border" download>
                     <input type="submit" form="upload" onclick="return Confirm()" value="Upload"
                         class="btn btn-sm btn-primary w-25 border">
