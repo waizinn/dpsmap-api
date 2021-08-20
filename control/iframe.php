@@ -1,9 +1,9 @@
 <?php
 
-$table = 'log';
+$_SESSION['table']=$table = 'log';
 $order = 'DESC';
-$export = "../export/api";
-$sql = "Select * from $table ORDER BY id $order";
+$export = "../export";
+$_SESSION['sql']=$sql = "Select * from $table ORDER BY id $order";
 $Paginator = new Paginator($link, $table, $export);
 $results = $Paginator->getData($limit, $page, $sql);
 

@@ -1,25 +1,36 @@
 <?php
 include "includes/header.php";
-
-$table = 'dps';
+if (isset($_GET['filter'])) {
+    $text = $_GET['text'] = $_GET['text'];
+	}	else{
+	$text = $_SESSION['text'];
+	}
+	if ($text != "") {
+    $ext = " WHERE DPS_ID LIKE '%$text%' OR HN_Eng LIKE '%$text%' OR St_N_Eng LIKE '%$text%' OR Ward_N_Eng LIKE '%$text%' OR 
+	Tsp_N_Eng LIKE '%$text%' ";
+	}else{$ext='';}
+$_SESSION['table']=$table = 'dps';
 $order = 'DESC';
-$export = "export/dps";
-$sql = "Select * from $table";
-$Paginator = new Paginator($link, $table, $export);
+$export = "/export";
+$filter=$table.$ext;
+$_SESSION['sql']=$sql = "Select * from $filter";
+$Paginator = new Paginator($link, $filter, $export);
 $results = $Paginator->getData($limit, $page, $sql);
 
 ?>
 
 
 
-<div class="row mb-3">
-	<!-- <div class="col col-2">
-		<?php //if ($role=="Admin") {?>
-	<a class="btn btn-primary btn-sm" href="edit-dps?act=add"> <i class="glyphicon glyphicon-plus-sign"></i>
-		Add</a>
-	<?php //}?>
-</div> -->
+
+<div class="d-flex flex-row-reverse mb-2">
+<form class="form-inline p-2" action="" method="get">
+<input  type="text" name="text" placeholder="Search with DPS_ID, HN_Eng, St_N_Eng, Ward_N_Eng & Tsp_N_Eng"
+value="<?=$text?>" class="form-control form-control-sm" style="width:400px;">
+<input  type="submit" name="filter" class="btn btn-primary btn-sm " value="Search">
+</form>
 </div>
+
+
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>

@@ -135,19 +135,8 @@ function QuerySelect($query, $object = null)
 {
     global $link;
     $result = mysqli_query($link, $query);
-    $return = [];
-    if ($result) {
-        $num = mysqli_num_rows($result);
-        for ($i = 0; $i < $num; $i++) {
-            if (!is_null($object)) {
-                $row = mysqli_fetch_object($result);
-            } else {
-                $row = mysqli_fetch_array($result);
-            }
-            $return[$i] = $row;
-        }
-    }
-    return $return;
+    $result = mysqli_fetch_all($result, MYSQLI_ASSOC);;
+    return $result;
 }
 function mysqli_result($res, $row = 0, $col = 0)
 {

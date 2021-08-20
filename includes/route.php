@@ -102,11 +102,7 @@ if ($ext != '') {
             require 'control/iframe.php';
             break;
 
-        case '/export/api':
-            require 'export/api.php';
-            break;
-
-        case '/export/dps':
+        case '/export':
             require 'export/dps.php';
             break;
 
