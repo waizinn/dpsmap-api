@@ -1,7 +1,7 @@
 <?php
 $value = mysqli_real_escape_string($link, $value);
 
-$dataArrays = getById_value('dps', $value, '20');
+$dataArrays = getById_value('dps', $value, '150');
 $data = array();
 
 foreach ($dataArrays as $dataArray):
