@@ -47,7 +47,17 @@ URL:https://dps.ethicaldigit.com/api/ (HTTP Method: POST OR GET)
         Example Request with GET Method :
     https://dps.ethicaldigit.com/api/?token=aLy1EiehhwJF7SJ10Hb1Vxx7&filter=ward&value=Dawbon
 
-
+    Search by HN_Eng 
+        Request: 
+        token=your_token,
+        filter=hn
+        tsp=the value of Tsp_N_Eng (Example: Dagon Myothit East)
+        street=the value of St_N_Eng (Example: 1st Street)
+        value=the value of HN_Eng (Example: 3)
+        similar= y or n (optional)
+        
+        Example Request with GET Method :
+    https://dps.ethicaldigit.com/api/?token=aLy1EiehhwJF7SJ10Hb1Vxx7&filter=hn&tsp=Dagon%20Myothit%20East&street=1st%20Street&value=3&similar=n
 
         Example Response  (JSON): 
         {

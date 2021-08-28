@@ -8,6 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $lon = $_POST["lon"];
     $filter = $_POST["filter"];
 
+    $tsp = $_POST["tsp"];
+    $street = $_POST["street"];
+    $similar = $_POST["similar"];
+
 } else {
     $token = $_GET["token"];
     $dps_id = $_GET["dps_id"];
@@ -16,6 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $lon = $_GET["lon"];
     $filter = $_GET["filter"];
 
+    $tsp = $_GET["tsp"];
+    $street = $_GET["street"];
+    $similar = $_GET["similar"];
 }
 
 if (isset($token) && strlen($token) == 24) {
@@ -25,10 +32,12 @@ if (isset($token) && strlen($token) == 24) {
     $result = getById_id('api', 'token', $token, 'status', 'Active');
 
     if ($result['id']) {
-        if (isset($filter) && $filter == 'tsp') {
-            require_once "search_all_tsp_list.php";
+        if (isset($filter) && $filter == 'hn') {
+            require_once "search_with_hn.php";
         } elseif (isset($filter) && $filter == 'ward') {
             require_once "search_all_ward_list.php";
+        } elseif (isset($filter) && $filter == 'tsp') {
+            require_once "search_all_tsp_list.php";
         } elseif (isset($value) && strlen($value) >= 3) {
             require_once "search_with_value.php";
         } elseif (isset($lat) && isset($lon)) {

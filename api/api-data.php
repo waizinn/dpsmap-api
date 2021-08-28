@@ -28,7 +28,20 @@ function getAllWard($table, $value)
     $query = "SELECT DISTINCT Ward_N_Eng,Ward_N_Myn,Tsp_N_Eng,Tsp_N_Myn,Dist_N_Eng,Dist_N_Myn FROM $table WHERE Tsp_N_Eng='$value';";
     $result = QuerySelect($query);
     return $result;
-
+}
+function getAllHn($table, $tsp,$street,$value,$similar)
+{
+    if($similar=='y' && strlen($value)>=2){
+        $hn = substr($value, 0, -1);
+        $query = "SELECT DISTINCT Ward_N_Eng,Ward_N_Myn,Tsp_N_Eng,Tsp_N_Myn,Dist_N_Eng,Dist_N_Myn FROM $table WHERE 
+        Tsp_N_Eng='$tsp' AND St_N_Eng='$street' AND HN_Eng LIKE '%$value%';";
+    }
+    else{
+        $query = "SELECT DISTINCT Ward_N_Eng,Ward_N_Myn,Tsp_N_Eng,Tsp_N_Myn,Dist_N_Eng,Dist_N_Myn FROM $table WHERE 
+        Tsp_N_Eng='$tsp' AND St_N_Eng='$street' AND HN_Eng LIKE '$value%';";
+    }
+    $result = QuerySelect($query);
+    return $result;
 }
 
 function getById_value($table, $value, $limit)
