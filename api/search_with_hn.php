@@ -8,14 +8,17 @@ $data = array();
 foreach ($dataArrays as $dataArray):
 
     $data[] = array(
-
+        'DPS_ID' => $dataArray['DPS_ID'],
+        'HN_Eng' => $dataArray['HN_Eng'],
+        'HN_Myn' => $dataArray['HN_Myn'],
         'Ward_N_Eng' => $dataArray['Ward_N_Eng'],
         'Ward_N_Myn' => $dataArray['Ward_N_Myn'],
         'Tsp_N_Eng' => $dataArray['Tsp_N_Eng'],
         'Tsp_N_Myn' => $dataArray['Tsp_N_Myn'],
         'Dist_N_Eng' => $dataArray['Dist_N_Eng'],
         'Dist_N_Myn' => $dataArray['Dist_N_Myn'],
-
+        'Longitude' => $dataArray['Longitude'],
+        'Latitude' => $dataArray['Latitude'],
     );
 endforeach;
 if ($dataArrays != '' && $dataArrays != []) {
@@ -25,5 +28,4 @@ if ($dataArrays != '' && $dataArrays != []) {
 } else {
     $code = 404;
     $data = array("code" => 404, "message" => "Not Found");
-
 }
